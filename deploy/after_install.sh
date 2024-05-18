@@ -8,7 +8,7 @@ sudo apt -y install npm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install --lts
+nvm install v18.13.0
 node -v
 
 #create directory for app logs
@@ -36,6 +36,8 @@ EOF
 sudo mv /home/ubuntu/merge-sort-app.service /etc/systemd/system/
 
 #create link to nodejs executable
-sudo ln -s "$(which node)" /usr/bin/node
+sudo ln -s "$(which node)" /usr/bin/node 2> /dev/null
+
+echo "--------------------------------after_install.sh successfully completed--------------------------------"
 
 
