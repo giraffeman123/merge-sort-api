@@ -1,5 +1,6 @@
 #!/bin/bash
 
-cd /home/ubuntu/merge-sort-api
-# pm2 delete server
-# pm2 start index.js
+#we enable the service, start it and check status
+sudo systemctl enable merge-sort-app
+sudo systemctl start merge-sort-app
+sudo systemctl status merge-sort-app
