@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.get('/api', async(req,res)=>{
-    console.log('-----------fetching /api-----------');
+    console.log('-----------fetching  /api-----------');
     res.status(200).json("Welcome to merge sort app.");
 });
 
