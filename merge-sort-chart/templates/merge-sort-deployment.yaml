@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.mergeSort.imageName }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    name: {{ .Values.deployment.mergeSort.imageName }}-apps
+spec:
+  replicas: {{ .Values.deployment.mergeSort.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.mergeSort.imageName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.mergeSort.imageName }}
+    spec:
+      containers:
+        - name: {{ .Values.deployment.mergeSort.imageName }}-app
+          image: {{ .Values.deployment.mergeSort.imageName }}:{{ .Values.deployment.mergeSort.imageTag }}
+          imagePullPolicy: {{ .Values.deployment.mergeSort.imagePullPolicy }}
+          env:
+            - name: TZ
+              value: America/Tijuana
+            - name: PORT
+              value: {{ .Values.deployment.mergeSort.containerPort }}              
+          ports:
+            - containerPort: {{ .Values.deployment.mergeSort.containerPort }}
