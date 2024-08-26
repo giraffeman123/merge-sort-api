@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: {{ (splitList "/" .Values.deployment.mergeSort.imageName) | last }}-app
-          image: {{ (splitList "/" .Values.deployment.mergeSort.imageName) | last }}:{{ .Values.deployment.mergeSort.imageTag }}
+          image: {{ .Values.deployment.mergeSort.imageName }}:{{ .Values.deployment.mergeSort.imageTag }}
           imagePullPolicy: {{ .Values.deployment.mergeSort.imagePullPolicy }}
           env:
             - name: TZ
