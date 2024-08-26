@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   selector:
-    app: {{ .Values.deployment.mergeSort.imageName }}
+    app: {{ (splitList "/" .Values.deployment.mergeSort.imageName) | last }}
   type: {{ .Values.deployment.mergeSort.service.type }}    
   ports:
     - protocol: TCP      
