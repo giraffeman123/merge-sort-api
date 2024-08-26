@@ -19,12 +19,12 @@ spec:
       containers:
         - name: merge-sort-app
           image: elliotmtz12/merge-sort
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           env:
             - name: TZ
               value: America/Tijuana
             - name: PORT
-              value: 8080
+              value: "8080"
           ports:
             - containerPort: 8080
       nodeSelector:
