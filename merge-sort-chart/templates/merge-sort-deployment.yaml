@@ -24,6 +24,10 @@ spec:
             - name: TZ
               value: America/Tijuana
             - name: PORT
-              value: {{ .Values.deployment.mergeSort.containerPort }}              
+              value: "{{ .Values.deployment.mergeSort.containerPort }}"              
           ports:
             - containerPort: {{ .Values.deployment.mergeSort.containerPort }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

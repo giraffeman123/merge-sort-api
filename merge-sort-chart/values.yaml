@@ -5,6 +5,7 @@
 nameOverride: ""
 fullnameOverride: ""
 
+namespace: default
    
 ingress:
   enabled: true
@@ -58,7 +59,9 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+nodeSelector: {
+  env: "prod"
+}
 
 tolerations: []
 
