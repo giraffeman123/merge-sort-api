@@ -1,3 +1,4 @@
+const tracer = require('dd-trace').init();
 var express = require('express');
 const bodyParser = require('body-parser');
 
